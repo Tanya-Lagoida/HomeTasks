@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route,  Routes } from "react-router-dom";
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Error404 } from './pages/Error404';
 import { PreJunior } from './pages/PreJunior';
 import { Junior } from './pages/Junior';
@@ -9,19 +9,15 @@ import { JuniorPlus } from './pages/JuniorPlus';
 export function AllRoutes() {
   return (
 
-      <Routes>
+    <Switch>
 
-        <Route path={'/'}
-               element={<PreJunior/>}/>
-        <Route path={'/pre_junior'}
-               element={<PreJunior/>}/>
-        <Route path={'/junior'}
-               element={<Junior/>}/>
-        <Route path={'/junior_plus'}
-               element={<JuniorPlus/>}/>
-        <Route element={<Error404/>}/>
+      <Route path={'/'} exact render={() => <Redirect to='/pre_junior'/>} />
+      <Route path={'/pre_junior'} render={() => <PreJunior/>}/>
+      <Route path={'/junior'} render={() => <Junior/>}/>
+      <Route path={'/junior_plus'} render={() => <JuniorPlus/>}/>
+      <Route path={'*'} render={() => <Error404/>}/>
 
-      </Routes>
+    </Switch>
   );
 }
 
