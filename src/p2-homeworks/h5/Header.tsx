@@ -1,12 +1,24 @@
-import React from 'react'
+import React from 'react';
+import  {NavLink}   from 'react-router-dom';
+import s from 'Header.module.css'
 
-function Header() {
-    return (
+
+
+export function Header() {
+  return (
+    <nav>
         <div>
-            // add NavLinks
-
+          <NavLink to={'/pre_junior'} className={s.activeLink}>Pre-Junior</NavLink>
         </div>
-    )
+        <div>
+          <NavLink to={'/junior'} className={s.activeLink}>Junior</NavLink>
+        </div>
+        <div>
+        <NavLink to={'/junior_plus'} className={s.activeLink}>JuniorPlus</NavLink>
+        </div>
+    </nav>
+
+  );
 }
 
-export default Header
+
