@@ -8,16 +8,19 @@ import { JuniorPlus } from './pages/JuniorPlus';
 
 export function AllRoutes() {
   return (
+    <div>
+      <Switch>
 
-    <Switch>
+        <Route path={'/'} exact render={() => <Redirect to='/pre_junior'/>} />
+        <Route path={'/pre_junior'} render={() => <PreJunior/>}/>
+        <Route path={'/junior'} render={() => <Junior/>}/>
+        <Route path={'/junior_plus'} render={() => <JuniorPlus/>}/>
+        <Route path={'*'} render={() => <Error404/>}/>
 
-      <Route path={'/'} exact render={() => <Redirect to='/pre_junior'/>} />
-      <Route path={'/pre_junior'} render={() => <PreJunior/>}/>
-      <Route path={'/junior'} render={() => <Junior/>}/>
-      <Route path={'/junior_plus'} render={() => <JuniorPlus/>}/>
-      <Route path={'*'} render={() => <Error404/>}/>
+      </Switch>
+    </div>
 
-    </Switch>
+
   );
 }
 

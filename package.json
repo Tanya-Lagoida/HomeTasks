@@ -8,6 +8,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.6",
     "@mui/styled-engine-sc": "^5.10.6",
+    "@storybook/react": "^6.5.13",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -19,6 +20,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^8.3.4",
     "chokidar": "^3.5.3",
+    "latest-version": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.2",
@@ -36,12 +38,24 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -57,6 +71,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack4": "^6.5.13",
+    "@storybook/manager-webpack4": "^6.5.13",
+    "@storybook/node-logger": "^6.5.13",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/testing-library": "^0.0.13",
     "gh-pages": "^3.2.3"
+  },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0"
   }
 }
